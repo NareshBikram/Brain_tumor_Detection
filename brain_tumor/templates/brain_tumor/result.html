@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Result</title>
+    <link rel="stylesheet" href="{% static 'css/resultstyle.css' %}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <img src="{% static 'images/R.png' %}" alt="Logo" class="logo">
+        <nav>
+            <a href="{% url 'home' %}" class="nav-link">Home</a>
+            <a href="{% url 'login' %}" class="nav-link">Login</a>
+            <a href="{% url 'service' %}" class="nav-link">Service</a>
+            <a href="{% url 'contact' %}" class="nav-link">Contact</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="scan-card">
+            <h2 class'nar'>Scan Results</h2>
+    
+            <!-- Patient Information Section -->
+            <div class="patient-info">
+                <h3>Patient Details</h3>
+                <p><span class="label">Name:</span> <span>{{ patient.name }}</span></p>
+                <p><span class="label">Age:</span> <span>{{ patient.age }}</span></p>
+                <p><span class="label">Email:</span> <span>{{ patient.email }}</span></p>
+            </div>
+    
+            <!-- Diagnosis Summary Section -->
+            <div class="tumor-summary">
+                <h4>Diagnosis Summary</h4>
+                <p>{{ patient.diagnosis }}</p>
+            </div>
+    
+            <!-- Most Recent MRI Image Section -->
+            <div class="mri-image-section">
+                <h4>MRI Scan</h4>
+                {% with recent_image=patient.mri_images.last %}
+                    {% if recent_image %}
+                        <div class="scan-result">
+                            <h5>Scan Date: {{ recent_image.date_taken }}</h5>
+                            <h5>Prediction Result</h5>
+                            {% if recent_image.pre_image %}
+                                <img src="{{ recent_image.pre_image.url }}" alt="Predicted MRI Result">
+                            {% else %}
+                                <p>No prediction available for this scan.</p>
+                            {% endif %}
+                        </div>
+                    {% else %}
+                        <p>No scans available for this patient.</p>
+                    {% endif %}
+                {% endwith %}
+            </div>
+    
+            <!-- Confidence Scores Section (Displayed if Tumor Detected) -->
+            {% if tumor_detected %}
+                <div class="confidence-details">
+                    <h4>Confidence Scores</h4>
+                    <p><strong>Average Confidence:</strong> {{ avg_confidence|floatformat:2 }}</p>
+                    <p><strong>Max Confidence:</strong> {{ max_confidence|floatformat:2 }}</p>
+                    <p><strong>Min Confidence:</strong> {{ min_confidence|floatformat:2 }}</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Tumor Detection</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/followstyle.css' %}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <img src="{% static 'images/R.png' %}" alt="Logo" class="logo">
+        <nav>
+            <a href="{% url 'home' %}" class="nav-link">Home</a>
+            <a href="{% url 'login' %}" class="nav-link">Login</a>
+            <a href="{% url 'service' %}" class="nav-link">Service</a>
+            <a href="{% url 'contact' %}" class="nav-link">Contact</a>
+        </nav>
+    </header>
+    
+    <form class='search' action="{% url 'search_patient' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h1>Search Patient for Follow-Up</h1>
+        <label for="patient_id">Patient ID:</label>
+        <input type="text" id="patient_id" name="patient_id" placeholder="Search by id" required>
+
+        <div class="form-row">
+            <label for="image">Image:</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
+        </div>
+
+        <button type="submit">SCAN</button>
+    </form>
+</body>
+</html>

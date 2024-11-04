@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Tumor Detection</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <img src="{% static 'images/R.png' %}" alt="Logo" class="logo">
+        <nav>
+            <a href="{% url 'home' %}" class="nav-link">Home</a>
+            <a href="{% url 'login' %}" class="nav-link">Login</a>
+            <a href="{% url 'service' %}" class="nav-link">Service</a>
+            <a href="{% url 'contact' %}" class="nav-link">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>Brain Tumor Detection</h1>
+        <p>AI initiative to early detect brain tumor using state-of-the-art Deep Learning Algorithm.</p>
+
+        <div class="options-container">
+            <div class="option">
+                <img src="{% static 'images/scanme.png' %}" alt="Scan Icon">
+                <h3>Scan</h3>
+                <p>Cutting-edge tool designed to assist in the early detection and diagnosis of brain abnormalities.</p>
+                <a href="{% url 'service' %}">
+                <button>Scan</button>
+                </a>
+            </div>
+            <div class="option">
+                <img src="{% static 'images/Picture1.png' %}" alt="Train Icon">
+                <h3>Train Model</h3>
+                <p>large datasets and sophisticated algorithms to train models on identifying patterns and abnormalities.</p>
+                <button>Train Model</button>
+            </div>
+            <div class="option">
+                <img src="{% static 'images/Picture3.png' %}" alt="Records Icon">
+                <h3>Patient Records</h3>
+                <p>Provides quick access to essential patient data, facilitating better-informed decisions and seamless patient care.</p>
+                <a href="{% url 'login'%}">
+                <button>Patient Records</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Neumorphism Section -->
+    <section class="neumorphism-section">
+        <div class="image-container">
+            <img src="{% static 'images/about-us-1.jpg' %}" alt="Desk Image">
+        </div>
+        <div class="text-content">
+            <h1>Design with us, Develop Anything.</h1>
+            <p>
+                Themesberg is an experienced and passionate group of designers, developers, project managers, writers, and artists. Every client we work with becomes a part of the team. Together we face the challenges and celebrate the victories.
+            </p>
+            <p>
+                Our small team is active in the creative community, endlessly interested in what’s next, and generally pleasant to be around.
+            </p>
+            <img src="{% static 'images/signature.png' %}" alt="Signature" class="signature">
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <div class="team-section">
+        <h2>Our Team</h2>
+        <div class="team-members">
+            <div class="member">
+                <img src="{% static 'images/naresh.png' %}" alt="Neil Sims">
+                <h3>Naresh Bikram</h3>
+                <p>Coder</p>
+            </div>
+            <div class="member">
+                <img src="{% static 'images/naresh.png' %}" alt="Bonnie Green">
+                <h3>Naresh Bikram</h3>
+                <p>Ui/Ux Designer</p>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Scan Result Analysis. All rights reserved.</p>
+        <p>Contact us: <a href="mailto:support@scanresult.com">support@scanresult.com</a></p>
+    </footer>
+</body>
+</html>

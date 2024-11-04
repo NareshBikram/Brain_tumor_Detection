@@ -1,0 +1,117 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #e0e5ec;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px 50px;
+    background: #e0e5ec;
+    box-shadow: 5px 5px 15px #babecc, -5px -5px 15px #ffffff;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    height: 50px;
+}
+
+nav {
+    display: flex;
+}
+
+.nav-link {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
+    background: #e0e5ec;
+    box-shadow: 3px 3px 6px #babecc, -3px -3px 6px #ffffff;
+    transition: box-shadow 0.2s ease;
+}
+
+.nav-link:hover {
+    box-shadow: inset 3px 3px 6px #babecc, inset -3px -3px 6px #ffffff;
+}
+
+/* Overall container for neumorphic effect */
+/* Neumorphic form container */
+.search {
+    background: #e0e5ec;
+    border-radius: 15px;
+    box-shadow: 10px 10px 20px #babecc, -10px -10px 20px #ffffff;
+    padding: 30px;
+    width: 300px;
+    margin-top: 80px;
+}
+
+/* Form title */
+h1 {
+    text-align: center;
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 35px;
+}
+
+/* Label styling */
+.search label {
+    font-weight: bold;
+    color: #555;
+    display: block;
+    margin-top: 15px;
+}
+
+/* Input fields */
+.search input[type="text"],
+.search input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: inset 5px 5px 10px #babecc, inset -5px -5px 10px #ffffff;
+    background: #e0e5ec;
+}
+
+/* Submit button with neumorphic design */
+.search button[type="submit"] {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    background: #e0e5ec;
+    color: #333;
+    font-weight: bold;
+    border: none;
+    box-shadow: 5px 5px 10px #babecc, -5px -5px 10px #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search button[type="submit"]:hover {
+    box-shadow: inset 5px 5px 10px #babecc, inset -5px -5px 10px #ffffff;
+}
+
+.search button[type="submit"]:active {
+    box-shadow: inset 5px 5px 10px #babecc, inset -5px -5px 10px #ffffff;
+    color: #555;
+}

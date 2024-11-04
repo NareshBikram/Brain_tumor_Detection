@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <img src="{% static 'images/R.png' %}" alt="Logo" class="logo">
+        <nav>
+            <a href="{% url 'home' %}" class="nav-link">Home</a>
+            <a href="{% url 'login' %}" class="nav-link">Login</a>
+            <a href="{% url 'service' %}" class="nav-link">Service</a>
+            <a href="{% url 'contact' %}" class="nav-link">Contact</a>
+        </nav>
+    </header>
+
+    <div class="form-container">
+        <h1>Scan Brain MRI</h1>
+        <form class="scan-form" action="{% url 'scan_image' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-row">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-row">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required>
+            </div>
+
+            <div class="form-row">
+                <label for="email">Email:</label>
+                <input type="email" id="contact" name="email" required>
+            </div>
+
+            <div class="form-row">
+                <label for="image">Image:</label>
+                <input type="file" id="image" name="image" accept="image/*" required>
+            </div>
+
+            <button type="submit">SCAN</button>
+        </form>
+
+        <a href="{% url 'followup'%}" class="nar">
+        <button class="btn-nar">Follow Up</button>
+        </a>
+
+        <div class="alert">
+            <span class="icon">ℹ️</span>
+            <span class="message">Warning! use clear brain scans.</span>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Scan Result Analysis. All rights reserved.</p>
+        <p>Contact us: <a href="mailto:support@scanresult.com">support@scanresult.com</a></p>
+    </footer>
+</body>
+</html>

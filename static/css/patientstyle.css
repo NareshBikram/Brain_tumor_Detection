@@ -1,0 +1,162 @@
+/* Reset and Body Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #e0e5ec;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+    color: #333;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px 50px;
+    background: #e0e5ec;
+    box-shadow: 5px 5px 15px #babecc, -5px -5px 15px #ffffff;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    height: 50px;
+}
+
+nav {
+    display: flex;
+}
+
+.nav-link {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
+    background: #e0e5ec;
+    box-shadow: 3px 3px 6px #babecc, -3px -3px 6px #ffffff;
+    transition: box-shadow 0.2s ease;
+}
+
+.nav-link:hover {
+    box-shadow: inset 3px 3px 6px #babecc, inset -3px -3px 6px #ffffff;
+}
+
+/* Container for Section */
+.section {
+    width: 80%;
+    margin-top: 150px; /* Spacing from header */
+}
+
+.title {
+    text-align: center;
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+/* Search Form Styling */
+.field {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5rem;
+}
+
+.input {
+    border: none;
+    outline: none;
+    padding: 10px;
+    width: 300px;
+    font-size: 1em;
+    border-radius: 10px;
+    box-shadow: inset 5px 5px 10px #babecc, inset -5px -5px 10px #ffffff;
+    background: #e0e5ec;
+}
+
+.button {
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    margin-left: 10px;
+    border-radius: 10px;
+    color: #333;
+    background: #e0e5ec;
+    box-shadow: 5px 5px 10px #babecc, -5px -5px 10px #ffffff;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease;
+}
+
+.button:hover {
+    box-shadow: inset 5px 5px 10px #babecc, inset -5px -5px 10px #ffffff;
+}
+
+/* Patient Records Cards */
+.card {
+    background: #e0e5ec;
+    box-shadow: 5px 5px 15px #babecc, -5px -5px 15px #ffffff;
+    border-radius: 15px;
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card h2 {
+    font-size: 1.5em;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.card ul {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+}
+
+.card ul li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    background: #e0e5ec;
+    border-radius: 10px;
+    box-shadow: inset 3px 3px 6px #babecc, inset -3px -3px 6px #ffffff;
+}
+
+.card ul li label {
+    font-weight: bold;
+    color: #333;
+}
+
+.card ul li img {
+    border-radius: 10px;
+    box-shadow: 3px 3px 6px #babecc, -3px -3px 6px #ffffff;
+    max-width: 200px;
+    margin-right: 350px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 8px 8px 20px #babecc, -8px -8px 20px #ffffff;
+}
+
+.small-image {
+    max-width: 280px !important;
+    max-height: 280px !important;
+    border-radius: 5px !important;
+    box-shadow: 3px 3px 6px #babecc, -3px -3px 6px #ffffff !important;
+}

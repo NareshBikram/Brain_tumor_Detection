@@ -1,0 +1,7 @@
+tensorflow==2.12.0
+numpy
+pandas
+keras==2.12.0
+opencv-contrib-python
+scikit-learn
+pillow

@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #e0e5ec;
+}
+
+.clock {
+    position: relative;
+    margin-bottom: 35px;
+    margin-top: -15px;
+    width: 100px; /* Changed from 200px to 100px */
+    height: 100px; /* Changed from 200px to 100px */
+    border-radius: 50%;
+    background: #e0e5ec;
+    box-shadow: 5px 5px 15px #babecc, -5px -5px 15px #ffffff;
+}
+
+.hand {
+    position: absolute;
+    background: #333;
+    border-radius: 10px;
+    transform-origin: bottom;
+    transform: translateX(-50%);
+}
+
+.hour {
+    width: 4px; /* Adjusted for smaller size */
+    height: 30px; /* Adjusted for smaller size */
+    bottom: 50px; /* Adjusted for smaller size */
+    left: 50%;
+}
+
+.minute {
+    width: 3px; /* Adjusted for smaller size */
+    height: 40px; /* Adjusted for smaller size */
+    bottom: 50px; /* Adjusted for smaller size */
+    left: 50%;
+    background: rgb(12, 57, 221);
+}
+
+.second {
+    width: 2px; /* Same size */
+    height: 50px; /* Adjusted for smaller size */
+    bottom: 50px; /* Adjusted for smaller size */
+    background: red;
+    left: 50%;
+}
+
+.center {
+    position: absolute;
+    width: 10px; /* Adjusted for smaller size */
+    height: 10px; /* Adjusted for smaller size */
+    background: #e0e5ec;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 5px 5px 15px #babecc, -5px -5px 15px #ffffff;
+}

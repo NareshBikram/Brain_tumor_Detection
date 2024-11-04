@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient List</title>
+    <link rel="stylesheet" href="{% static 'css/patientstyle.css' %}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <img src="{% static 'images/R.png' %}" alt="Logo" class="logo">
+        <nav>
+            <a href="{% url 'home' %}" class="nav-link">Home</a>
+            <a href="{% url 'login' %}" class="nav-link">Login</a>
+            <a href="{% url 'service' %}" class="nav-link">Service</a>
+            <a href="{% url 'contact' %}" class="nav-link">Contact</a>
+        </nav>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Patient Records</h1>
+    
+            <!-- Search Form -->
+            <form method="GET" action="{% url 'patient_list' %}">
+                <div class="field has-addons">
+                    <div class="control">
+                        <input class="input" type="text" name="query" placeholder="Search by name" value="{{ query }}">
+                    </div>
+                    <div class="control">
+                        <button type="submit" class="button is-info">Search</button>
+                    </div>
+                </div>
+            </form>
+    
+            {% for patient in patients %}
+            <div class="card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><label>ID:</label></td>
+                            <td>{{ patient.id }}</td>
+                        </tr>
+                        <tr>
+                            <td><label>Name:</label></td>
+                            <td>{{ patient.name }}</td>
+                        </tr>
+                        <tr>
+                            <td><label>Age:</label></td>
+                            <td>{{ patient.age }}</td>
+                        </tr>
+                        <tr>
+                            <td><label>Email:</label></td>
+                            <td>{{ patient.email }}</td>
+                        </tr>
+                        <tr>
+                            <td><label>Diagnosis:</label></td>
+                            <td colspan=5>{{ patient.diagnosis }}</td>
+                        </tr>
+
+                        {% for image in patient.mri_images.all %}
+                        <tr>
+                            <td><label>Scan Date:</label></td>
+                            <td>{{ image.date_taken }}</td>
+                            <td><label>MRI Image:</label></td>
+                            <td>
+                                {% if image.mri_image %}
+                                    <img src="{{ image.mri_image.url }}" alt="MRI Image" class="small-image">
+                                {% else %}
+                                    No MRI Image
+                                {% endif %}
+                            </td>
+                            <td><label>Predicted Image:</label></td>
+                            <td>
+                                {% if image.pre_image %}
+                                    <img src="{{ image.pre_image.url }}" alt="Predicted Image" class="small-image">
+                                {% else %}
+                                    No Predicted Image
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% empty %}
+                            <tr>
+                                <td colspan="2">No images available for this patient.</td>
+                            </tr>
+                        {% endfor %}
+                        <!--email button-->
+                        <tr>
+                            <td colspan="2" style="text-align: center;">
+                                <form action="{% url 'send_email' patient.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit" class="button is-info">Send</button>
+                                </form>
+                            </td>
+                        </tr>   
+                    </tbody>
+                </table>
+            </div>
+        {% empty %}
+            <div class="card">
+                <p>No patients found.</p>
+            </div>
+        {% endfor %}
+        </div>
+    </section>
+</body>
+</html>
+    

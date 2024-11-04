@@ -1,0 +1,110 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #e0e5ec;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px 50px;
+    background: #e0e5ec;
+    box-shadow: 5px 5px 15px #babecc, -5px -5px 15px #ffffff;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    height: 50px;
+}
+
+nav {
+    display: flex;
+}
+
+.nav-link {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
+    background: #e0e5ec;
+    box-shadow: 3px 3px 6px #babecc, -3px -3px 6px #ffffff;
+    transition: box-shadow 0.2s ease;
+}
+
+.nav-link:hover {
+    box-shadow: inset 3px 3px 6px #babecc, inset -3px -3px 6px #ffffff;
+}
+
+/*here======================================*/
+.container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #e0e5ec;
+}
+
+.scan-card {
+    width: 90%;
+    max-width: 600px;
+    background: #e0e5ec;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 9px 9px 16px #a3b1c6, -9px -9px 16px #ffffff;
+}
+
+h2, h3, h4, h5 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.mri-image-section, .confidence-details {
+    padding: 15px;
+    background: #e0e5ec;
+    border-radius: 10px;
+    box-shadow: inset 4px 4px 8px #a3b1c6, inset -4px -4px 8px #ffffff;
+    margin-bottom: 15px;
+}
+
+img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.label {
+    font-weight: bold;
+}
+
+p {
+    margin: 8px 0;
+    color: #555;
+}
+
+.tumor-summary
+{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.nar 
+{
+    text-align: center;
+}
